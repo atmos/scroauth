@@ -12,7 +12,9 @@ module Scro
       attr_reader :user_json
 
       def initialize(login, token)
+        raise RequestError, "Token not configured" if token.nil? || token.empty?
         @login, @token = login, token
+
         discover
       end
 
