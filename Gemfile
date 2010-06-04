@@ -12,6 +12,7 @@ group :test do
   gem 'bundler',          '~>0.9.25'
   gem 'randexp',          '~>0.1.5'
   gem 'ParseTree',        '>=3.0.4', :require => [ ]
+  gem 'ruby-debug'
 end
 
 # vim:ft=ruby
