@@ -9,9 +9,8 @@ module Scro
       "https://github.com/api/v2/json/"
     end
 
-    def self.get(token, path, query_params = { })
-      params = {'token' => token}.merge(query_params)
-      response = RestClient.get("#{endpoint}#{path}", {:accept => :json, :params => params})
+    def self.get(token, path)
+      response = RestClient.get("#{endpoint}#{path}?access_token=#{token}")
       raise RequestError, response.inspect unless response.code == 200
       JSON.parse(response)
     end

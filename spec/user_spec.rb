@@ -11,5 +11,8 @@ describe "User" do
   it "gets watched repos" do
     repos = user.watched_repos
     repos.should_not be_empty
+    if ENV['USER'] == 'atmos'
+      repos.size.should be > 725
+    end
   end
 end
