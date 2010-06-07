@@ -1,18 +1,19 @@
 require "spec_helper"
 
 describe "User" do
-  let(:user) { Scro::Auth::User.new(ENV['USER'], ENV['SCROAUTH_TOKEN']) }
+  let(:user) { Scro::Auth::User.new(ENV['SCROAUTH_TOKEN'], 'atmos') }
+
+  it "has simple accessors" do
+    user['name'].should eql('Corey Donohoe')
+    user['blog'].should eql('http://www.atmos.org')
+    user['login'].should eql('atmos')
+  end
 
   it "gets your repos" do
-    repos = user.repos
-    repos.should_not be_empty
+    user.repos.should_not be_empty
   end
 
   it "gets watched repos" do
-    repos = user.watched_repos
-    repos.should_not be_empty
-    if ENV['USER'] == 'atmos'
-      repos.size.should be > 725
-    end
+    user.watched_repos.size.should be > 725
   end
 end
