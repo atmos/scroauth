@@ -1,18 +1,17 @@
 module Scro
   module Auth
     class Repository < Request
-      def initialize(token, name)
+      def initialize(token, user, name)
         super(token)
-        @name = name
+        @user, @name = user, name
       end
 
       def add_deploy_key(title, key)
-        post("repos/key/#{@name}", {:title => title, :key => key})
+        post("repos/keys/#{@name}/add", {:title => title, :key => key})
       end
 
-      private
       def info
-        @info = get("repos/keys/#{@name}")
+        @info ||= get("repos/show/#{@user}/#{@name}")['repository']
       end
     end
   end

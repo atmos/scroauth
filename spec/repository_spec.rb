@@ -1,14 +1,14 @@
 require "spec_helper"
 
 describe "Repository" do
+  let(:repo) { Scro::Auth::Repository.new(ENV['SCROAUTH_TOKEN'], 'atmos', 'scroauth') }
+
   it "gets the repo" do
-    pending "github needs to add deploy key access" do
-      repo.should_not be_nil
-    end
+    repo.info['url'].should eql('http://github.com/atmos/scroauth')
+    repo.info['owner'].should eql('atmos')
   end
 
   it "adds a deployment key to the repo" do
-    pending "github needs to add deploy key adding"
-    repo.add_deploy_key('cloud', ssh_contents)
+    pp repo.add_deploy_key('cloud', ssh_contents)
   end
 end

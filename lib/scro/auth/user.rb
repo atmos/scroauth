@@ -20,6 +20,10 @@ module Scro
         @watched_repos ||= get("repos/watched/#{@login}")['repositories']
       end
 
+      def pushable_repos
+        @pushable_repos ||= get("repos/pushable")['repositories']
+      end
+
       def info
         @info ||= get("user/show/#{@login}")['user']
       end

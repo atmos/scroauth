@@ -10,10 +10,16 @@ describe "User" do
   end
 
   it "gets your repos" do
-    user.repos.should_not be_empty
+    user.repos.size.should be > 50
   end
 
   it "gets watched repos" do
-    user.watched_repos.size.should be > 725
+    user.watched_repos.size.should be > 500
+  end
+
+  it "gets pushable repos" do
+    pending "401s currently" do
+      user.pushable_repos.size.should be > 50 #??
+    end
   end
 end
