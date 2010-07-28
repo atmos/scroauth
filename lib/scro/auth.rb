@@ -5,13 +5,13 @@ module Scro
   module Auth
     class RequestError < StandardError; end
 
-    class Request
-      class << self
-        attr_accessor :endpoint_host, :endpoint_path
-      end
-      self.endpoint_host = 'https://github.com'
-      self.endpoint_path = '/api/v2/json/'
+    class << self
+      attr_accessor :endpoint_host, :endpoint_path
+    end
+    self.endpoint_host = 'https://github.com'
+    self.endpoint_path = '/api/v2/json/'
 
+    class Request
       def initialize(token)
         raise RequestError, "Token not configured" if token.nil? || token.empty?
         @token = token
@@ -35,7 +35,7 @@ module Scro
       end
 
       def endpoint
-        "#{self.class.endpoint_host}#{self.class.endpoint_path}"
+        "#{Scro::Auth.endpoint_host}#{Scro::Auth.endpoint_path}"
       end
     end
   end
