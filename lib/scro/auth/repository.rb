@@ -10,6 +10,10 @@ module Scro
         post("repos/keys/#{@name}/add", {:title => title, :key => key})
       end
 
+      def deploy_keys
+        get("repos/keys/#{@name}")
+      end
+
       def info
         @info ||= get("repos/show/#{@user}/#{@name}")['repository']
       end
