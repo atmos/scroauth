@@ -14,9 +14,7 @@ describe "User" do
   end
 
   it "gets your ssh keys" do
-    pending "401s currently" do
-      user.ssh_keys.size.should_not be_empty
-    end
+    user.ssh_keys.size.should eql(1)
   end
 
   it "gets watched repos" do

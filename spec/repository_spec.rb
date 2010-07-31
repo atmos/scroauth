@@ -9,7 +9,7 @@ describe "Repository" do
   end
 
   it "adds a deployment key to the repo" do
-    pending "401s currently" do
+    pending "still 401s" do
       repo.add_deploy_key('cloud', ssh_contents)
     end
   end
