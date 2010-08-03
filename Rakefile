@@ -19,7 +19,7 @@ Spec::Rake::SpecTask.new do |t|
 end
 
 GEM = "scroauth"
-GEM_VERSION = "0.0.3"
+GEM_VERSION = "0.0.4"
 AUTHOR = "Corey Donohoe"
 EMAIL = "atmos@atmos.org"
 HOMEPAGE = "http://github.com/atmos/scroauth"
