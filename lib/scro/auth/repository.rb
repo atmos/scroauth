@@ -7,7 +7,7 @@ module Scro
       end
 
       def add_deploy_key(title, key)
-        post("repos/keys/#{@name}/add", {:title => title, :key => key})
+        post("repos/key/#{@name}/add", {:title => title, :key => key})
       end
 
       def deploy_keys
