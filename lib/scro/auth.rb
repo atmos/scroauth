@@ -24,8 +24,7 @@ module Scro
       end
 
       def post(path, params)
-        params.merge!(:access_token => @token)
-        response = RestClient.post(uri_for(path), {:params => params, :body => params}, {:content_type => :json, :accept => :json})
+        response = RestClient.post(uri_for(path), params.to_json, {:content_type => :json, :accept => :json})
         raise RequestError, response.inspect unless response.code == 200
         JSON.parse(response.to_s)
       end
