@@ -1,0 +1,13 @@
+# oauth token from github
+SCROAUTH_TOKEN               = ENV['SCROAUTH_TOKEN']
+SCROAUTH_TEST_PROJECT        = 'scroauth'
+
+# things specific to your user
+SCROAUTH_USER                = ENV['USER']
+SCROAUTH_FULLNAME            = "Corey Donohoe"
+SCROAUTH_WEBSITE             = "http://www.atmos.org"
+SCROAUTH_LOGIN               = ENV['USER']
+SCROAUTH_REPO_COUNT          = 50
+SCROAUTH_SSH_KEY_COUNT       = 1
+SCROAUTH_WATCHED_REPO_COUNT  = 500
+SCROAUTH_PUSHABLE_REPO_COUNT = 50

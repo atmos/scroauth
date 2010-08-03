@@ -4,10 +4,10 @@ Bundler.require(:default, :runtime, :test)
 $LOAD_PATH << File.join(File.dirname(__FILE__), '..', 'lib')
 
 require 'scroauth'
+require 'config'
 
-raise ArgumentError unless ENV['USER'] == 'atmos'
 Spec::Runner.configure do |config|
-  def ssh_contents
-    File.ready(Scro::Auth::Key.new.public_key)
+  def random_digest
+    Digest::SHA1.hexdigest(Time.now.to_f.to_s)
   end
 end

@@ -2,3 +2,4 @@ coverage
 .bundle
 public
 pkg
+spec/config.rb
