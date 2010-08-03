@@ -35,5 +35,6 @@ module Scro
   end
 end
 
+require "scro/auth/key"
 require "scro/auth/user"
 require "scro/auth/repository"

@@ -7,10 +7,7 @@ require 'scroauth'
 
 raise ArgumentError unless ENV['USER'] == 'atmos'
 Spec::Runner.configure do |config|
-  config.before(:each) do
-  end
-
   def ssh_contents
-    File.read(File.expand_path("~/.ssh/id_dsa.pub"))
+    File.ready(Scro::Auth::Key.new.public_key)
   end
 end
