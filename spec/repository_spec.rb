@@ -8,9 +8,14 @@ describe "Repository" do
     repo.info['owner'].should eql('atmos')
   end
 
+  it "retrieves the deploy keys for repos" do
+    repo.deploy_keys.should be_empty
+  end
+
   it "adds a deployment key to the repo" do
+    let(:key) { File.ready(Scro::Auth::Key.new.public_key) }
     pending "still 401s" do
-      repo.add_deploy_key('cloud', ssh_contents)
+      repo.add_deploy_key('cloud', key)
     end
   end
 end

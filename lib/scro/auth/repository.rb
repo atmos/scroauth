@@ -11,11 +11,11 @@ module Scro
       end
 
       def deploy_keys
-        get("repos/keys/#{@name}")
+        get("repos/keys/#{@name}")["public_keys"]
       end
 
       def info
-        @info ||= get("repos/show/#{@user}/#{@name}")['repository']
+        @info ||= get("repos/show/#{@user}/#{@name}")["repository"]
       end
     end
   end
